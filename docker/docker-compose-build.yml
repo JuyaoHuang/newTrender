@@ -1,0 +1,91 @@
+services:
+  trend-radar:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: trend-radar
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:${WEBSERVER_PORT:-8080}:${WEBSERVER_PORT:-8080}"
+
+    volumes:
+      - ../config:/app/config:ro
+      - ../output:/app/output
+
+    environment:
+      - TZ=Asia/Shanghai
+      # 核心配置
+      - ENABLE_CRAWLER=${ENABLE_CRAWLER:-}
+      - ENABLE_NOTIFICATION=${ENABLE_NOTIFICATION:-}
+      - REPORT_MODE=${REPORT_MODE:-}
+      - SORT_BY_POSITION_FIRST=${SORT_BY_POSITION_FIRST:-}
+      - MAX_NEWS_PER_KEYWORD=${MAX_NEWS_PER_KEYWORD:-}
+      - REVERSE_CONTENT_ORDER=${REVERSE_CONTENT_ORDER:-}
+      # Web 服务器
+      - ENABLE_WEBSERVER=${ENABLE_WEBSERVER:-false}
+      - WEBSERVER_PORT=${WEBSERVER_PORT:-8080}
+      # 多账号配置
+      - MAX_ACCOUNTS_PER_CHANNEL=${MAX_ACCOUNTS_PER_CHANNEL:-}
+      # 推送时间窗口
+      - PUSH_WINDOW_ENABLED=${PUSH_WINDOW_ENABLED:-}
+      - PUSH_WINDOW_START=${PUSH_WINDOW_START:-}
+      - PUSH_WINDOW_END=${PUSH_WINDOW_END:-}
+      - PUSH_WINDOW_ONCE_PER_DAY=${PUSH_WINDOW_ONCE_PER_DAY:-}
+      # 通知渠道
+      - FEISHU_WEBHOOK_URL=${FEISHU_WEBHOOK_URL:-}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID:-}
+      - DINGTALK_WEBHOOK_URL=${DINGTALK_WEBHOOK_URL:-}
+      - WEWORK_WEBHOOK_URL=${WEWORK_WEBHOOK_URL:-}
+      - WEWORK_MSG_TYPE=${WEWORK_MSG_TYPE:-}
+      # 邮件配置
+      - EMAIL_FROM=${EMAIL_FROM:-}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD:-}
+      - EMAIL_TO=${EMAIL_TO:-}
+      - EMAIL_SMTP_SERVER=${EMAIL_SMTP_SERVER:-}
+      - EMAIL_SMTP_PORT=${EMAIL_SMTP_PORT:-}
+      # ntfy配置
+      - NTFY_SERVER_URL=${NTFY_SERVER_URL:-https://ntfy.sh}
+      - NTFY_TOPIC=${NTFY_TOPIC:-}
+      - NTFY_TOKEN=${NTFY_TOKEN:-}
+      # Bark配置
+      - BARK_URL=${BARK_URL:-}
+      # Slack配置
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
+      # 存储配置
+      - STORAGE_BACKEND=${STORAGE_BACKEND:-auto}
+      - LOCAL_RETENTION_DAYS=${LOCAL_RETENTION_DAYS:-0}
+      - REMOTE_RETENTION_DAYS=${REMOTE_RETENTION_DAYS:-0}
+      - STORAGE_TXT_ENABLED=${STORAGE_TXT_ENABLED:-true}
+      - STORAGE_HTML_ENABLED=${STORAGE_HTML_ENABLED:-true}
+      # 远程存储配置（S3 兼容协议）
+      - S3_ENDPOINT_URL=${S3_ENDPOINT_URL:-}
+      - S3_BUCKET_NAME=${S3_BUCKET_NAME:-}
+      - S3_ACCESS_KEY_ID=${S3_ACCESS_KEY_ID:-}
+      - S3_SECRET_ACCESS_KEY=${S3_SECRET_ACCESS_KEY:-}
+      - S3_REGION=${S3_REGION:-}
+      # 数据拉取配置
+      - PULL_ENABLED=${PULL_ENABLED:-false}
+      - PULL_DAYS=${PULL_DAYS:-7}
+      # 运行模式
+      - CRON_SCHEDULE=${CRON_SCHEDULE:-*/5 * * * *}
+      - RUN_MODE=${RUN_MODE:-cron}
+      - IMMEDIATE_RUN=${IMMEDIATE_RUN:-true}
+
+  trend-radar-mcp:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.mcp
+    container_name: trend-radar-mcp
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:3333:3333"
+
+    volumes:
+      - ../config:/app/config:ro
+      - ../output:/app/output
+
+    environment:
+      - TZ=Asia/Shanghai
