@@ -25,7 +25,6 @@ DJI
 
 腾讯
 马化腾
-校招
 
 宇树
 王兴兴
@@ -33,7 +32,18 @@ DJI
 字节
 bytedance
 张一鸣
+
+字节
+腾讯
+小米
 校招
+
+小米
+雷军
+
+哔哩哔哩
+bilibili
++动漫
 
 特斯拉
 马斯克
@@ -51,6 +61,7 @@ AMD
 google
 gemini
 deepmind
+
 Nano Banana
 
 chatgpt
@@ -72,6 +83,8 @@ agent
 语音克隆
 人工智能
 !gai
+!广告
+!培训
 
 自动驾驶
 机器人
