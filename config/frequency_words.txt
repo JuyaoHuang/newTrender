@@ -1,5 +1,14 @@
-胖东来
-于东来
+[GLOBAL_FILTER]
+广告
+推广
+营销
+震惊
+标题党
+
+[WORD_GROUPS]
+Qwen
+千问
+通义
 
 DeepSeek
 梁文锋
@@ -10,44 +19,21 @@ HarmonyOS
 任正非
 
 比亚迪
-王传福
 
 大疆
 DJI
 
+腾讯
+马化腾
+校招
+
 宇树
 王兴兴
-
-智元
-灵犀
-稚晖君
-彭志辉
-
-黑神话
-冯骥
-
-影之刃零
-梁其伟
-
-哪吒
-饺子
-杨宇
-!车
-!餐
-
-三体
-流浪地球
-刘慈欣
-郭帆
-
-申奥
-
-京东
-刘强东
 
 字节
 bytedance
 张一鸣
+校招
 
 特斯拉
 马斯克
@@ -65,6 +51,7 @@ AMD
 google
 gemini
 deepmind
+Nano Banana
 
 chatgpt
 openai
@@ -79,11 +66,14 @@ mac
 ios
 
 ai
-!gai
+nlp
+cv
+agent
+语音克隆
 人工智能
+!gai
 
 自动驾驶
-
 机器人
 
 国产
@@ -98,10 +88,13 @@ ai
 
 科技
 
+硅谷
+
+华尔街
+
 核能
 
 水电站
-雅鲁藏布江
 
 新质生产力
 
