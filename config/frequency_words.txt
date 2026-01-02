@@ -41,7 +41,7 @@ bytedance
 腾讯
 小米
 校招
-@10
+@5
 
 小米
 雷军
@@ -85,15 +85,17 @@ mac
 ios
 
 ai
-nlp
-cv
-agent
-语音克隆
 人工智能
 !gai
 !广告
 !培训
-@10
+@5
+
+nlp
+cv
+agent
+语音克隆
+@5
 
 自动驾驶
 机器人
