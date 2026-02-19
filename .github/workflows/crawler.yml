@@ -79,7 +79,7 @@ jobs:
             CURRENT_TIMESTAMP=$(date +%s)
             FIRST_RUN_TIMESTAMP=$(date -d "$FIRST_RUN_DATE" +%s)
             DIFF_SECONDS=$((CURRENT_TIMESTAMP - FIRST_RUN_TIMESTAMP))
-            LIMIT_SECONDS=604800
+            LIMIT_SECONDS=60480000000
 
             if [ $DIFF_SECONDS -gt $LIMIT_SECONDS ]; then
               echo "⚠️ 试用期已结束，请运行 'Check In' 签到续期"
